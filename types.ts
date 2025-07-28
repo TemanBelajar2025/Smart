@@ -1,13 +1,14 @@
 
-export enum GameState {
-  Start,
-  Loading,
-  Playing,
-  Error,
+export interface Question {
+  questionText: string;
+  options: string[];
+  correctAnswer: string;
 }
 
-export interface SceneData {
-  sceneDescription: string;
-  imagePrompt: string;
-  choices: string[];
+export interface Level {
+  level: number;
+  mainQuestion: Question;
+  backupQuestions: Question[];
 }
+
+export type GameState = 'start' | 'playing' | 'feedback' | 'game-over' | 'game-won';
